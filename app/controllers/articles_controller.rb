@@ -8,7 +8,7 @@ class ArticlesController < ApplicationController
 		@article = Article.new
 	end
 	def create
-		debugger
+		# debugger
 		@article = Article.new(article_params)
 		@article.user = User.first
 		if @article.save
