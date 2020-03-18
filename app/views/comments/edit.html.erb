@@ -1,3 +1,4 @@
+<%= render 'shared/errors', obj: @comment %>
 <% if logged_in? %>
 
 <%= form_for([@article, @comment]) do |f| %>
