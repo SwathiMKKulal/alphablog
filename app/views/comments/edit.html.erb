@@ -1,6 +1,10 @@
+<% if logged_in? %>
+
 <%= form_for([@article, @comment]) do |f| %>
 	<%= f.text_area :content %>
 	<%= f.submit %>
+<% end %>
+
 <% end %>
 
 
