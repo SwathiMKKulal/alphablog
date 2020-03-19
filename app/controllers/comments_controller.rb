@@ -2,6 +2,8 @@ class CommentsController < ApplicationController
 	before_action :find_post
 	before_action :find_comment, only: [:destroy, :edit, :update, :comment_owner]
 	before_action :comment_owner, only: [:destroy, :edit, :update]
+	def new
+	end
 	def create
 		@comment = @article.comments.create(params[:comment].permit(:content))
 		@comment.user_id = current_user.id
@@ -9,7 +11,8 @@ class CommentsController < ApplicationController
 		if @comment.save
 			redirect_to article_path(@article)
 		else
-			redirect_to article_path(@article)
+			flash[:error] = @comment.errors.full_messages
+			render '_new'
 		end
 	end
 
