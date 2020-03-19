@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
 	def new
 	end
 	def create
-		@comment = @article.comments.create(params[:comment].permit(:content))
+		@comment = @article.comments.create(params[:comment].permit(:comment))
 		@comment.user_id = current_user.id
 		@comment.save
 		if @comment.save
@@ -25,7 +25,7 @@ class CommentsController < ApplicationController
 	end
 
 	def update
-		if @comment.update(params[:comment].permit(:content))
+		if @comment.update(params[:comment].permit(:comment))
 			redirect_to article_path(@article)
 		else
 			render 'edit'

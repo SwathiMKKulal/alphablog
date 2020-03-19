@@ -2,7 +2,7 @@
 <% if logged_in? %>
 
 <%= form_for([@article, @comment]) do |f| %>
-	<%= f.text_area :content %>
+	<%= f.text_area :comment %>
 	<%= f.submit %>
 <% end %>
 

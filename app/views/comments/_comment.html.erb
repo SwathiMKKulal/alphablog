@@ -1,7 +1,7 @@
 <h6><i>This post has  <%= pluralize(@comments.count, "Comment") %></i></h2>
 <% @comments.each do |comment| %>
 <p><b><%= comment.user.username %></b></p>
-	<p><%= comment.content %></p>
+	<p><%= comment.comment %></p>
 	<% if current_user == comment.user %>
 	<%= link_to "Delete comment", [comment.article, comment], method: :delete %></br>
 	<%= link_to "Edit comment", edit_article_comment_path(comment.article, comment) %>
